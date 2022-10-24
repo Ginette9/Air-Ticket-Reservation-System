@@ -1,0 +1,8 @@
+CREATE TABLE `ticket_request`(
+	`ticket_id` int(11) NOT NULL,
+	`customer_email` varchar(50) NOT NULL,
+    `request_status` varchar(50) NOT NULL,
+    PRIMARY KEY(`ticket_id`, `customer_email`),
+	FOREIGN KEY(`ticket_id`) REFERENCES `ticket`(`ticket_id`),
+	FOREIGN KEY(`customer_email`) REFERENCES `customer`(`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+    <div class='container'>    
+      <h1>Log in as</h1>
+    </div>
+    
+
+{% if not message %}
+	<a href="/customer">customer</a>
+	<a href="/agent">agent</a>
+	<a href="/staff">staff</a>
+{% endif %}
+    </br>
+    </br>
+    </br>
+	<a href="/upcoming_flights">Search for upcoming flights</a></br>
+	<a href="/flight_status">Search for flight status</a></br>
+
+	
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+
+<table>
+	<th>airline_name</th>
+	<th>flight_num</th>
+	<th>departure_airport</th>
+	<th>departure_time</th>
+	<th>arrival_airport</th>
+	<th>arrival_time</th>
+	<th>price</th>
+	<th>status</th>
+	<th>airplane_id<th>
+
+{% for line in flight %}
+	<tr>
+		<td>{{line['airline_name']}}</td>
+		<td>{{line['flight_num']}}</td>
+		<td>{{line['departure_airport']}}</td>
+		<td>{{line['departure_time']}}</td>
+		<td>{{line['arrival_airport']}}</td>
+		<td>{{line['arrival_time']}}</td>
+		<td>{{line['price']}}</td>
+		<td>{{line['status']}}</td>
+		<td>{{line['airplane_id']}}</td>
+	</tr>
+{% endfor %}
+</table>
+
+
+</body>
+
+</html>
